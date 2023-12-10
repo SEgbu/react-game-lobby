@@ -1,7 +1,9 @@
+// import firebase library
 import {FirebaseApp, initializeApp} from "firebase/app";
 import {Auth, getAuth} from "firebase/auth";
 import {Firestore, getFirestore} from "firebase/firestore"
 
+// export firebase service variables
 export const firebase : FirebaseApp = initializeApp({
     apiKey: "AIzaSyAuqZeEdokFkX8u3QpBPeMvDUN2VVBJRP8",
     authDomain: "react-game-lobby-4e90c.firebaseapp.com",

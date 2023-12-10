@@ -4,7 +4,8 @@ import { SignOut } from "./SignOut";
 import { SignIn } from "./SignIn";
 
 export const Navbar = () => {
-    const [user] = useAuthState(auth);
+    // checks for user and gets attributes
+    const [user] = useAuthState(auth); 
 
     return (
         <nav style={{display: "flex", justifyContent: "space-between"}}>

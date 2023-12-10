@@ -4,7 +4,7 @@ import { auth } from "./Firebase";
 export const SignIn = () => {
     return (
         <button onClick={async() => {
-            await signInWithPopup(auth, new GoogleAuthProvider);
+            await signInWithPopup(auth, new GoogleAuthProvider); // use google popup to sign in
         }}>Sign In With Google</button>
     );
 }
