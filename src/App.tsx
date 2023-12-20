@@ -2,21 +2,22 @@ import React from "react";
 
 import { Navbar } from "./Navbar";
 import { Lobby } from "./Lobby";
-import { auth } from "./Firebase";
 
-import { useAuthState } from "react-firebase-hooks/auth";
+import { LobbyButtons } from "./LobbyButtons";
+import { LobbyProvider } from "./LobbyProvider";
+import { UserSuspense } from "./UserSupense";
 
-export const App: React.FC = () => { 
-    // checks for user and gets attributes
-    const [user] = useAuthState(auth); 
-
+export const App: React.FC = () => {
     return (
-        <React.Suspense fallback={
-            <p>Loading</p>
-        }>
+        <React.Suspense fallback={<p>Loading</p>}>
             <div>
-                <Navbar/>
-                {user ? <Lobby/> : <p>Not Logged In...</p>}                  
+                <Navbar />
+                <LobbyProvider>
+                        <UserSuspense fallback={<p>Not Logged In...</p>}>
+                            <Lobby />
+                            <LobbyButtons />
+                        </UserSuspense>
+                </LobbyProvider>
             </div>
         </React.Suspense>
     );
